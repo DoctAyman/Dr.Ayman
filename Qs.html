@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Question Answering</title>
+</head>
+<body>
+    <h1>Welcome to AI Question Answering</h1>
+    <form>
+        <label for="question">Ask a question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="answer"></div>
+
+    <script>
+        const form = document.querySelector('form');
+        const answerDiv = document.querySelector('#answer');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const question = document.querySelector('#question').value;
+            const response = await fetch(`https://api.aiquestionanswer.com/answer?question=${question}`);
+            const data = await response.json();
+            answerDiv.textContent = data.answer;
+        });
+    </script>
+</body>
+</html>
