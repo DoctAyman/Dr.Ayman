@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI that Answers</title>
+</head>
+<body>
+    <h1>AI that Answers</h1>
+    <p>Ask me anything!</p>
+    <input type="text" id="question" placeholder="Ask a question">
+    <button onclick="getAnswer()">Get Answer</button>
+    <p id="answer"></p>
+
+    <script>
+        function getAnswer() {
+            var question = document.getElementById("question").value;
+            var url = "https://www.google.com/search?q=" + encodeURIComponent(question);
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    var parser = new DOMParser();
+                    var htmlDoc = parser.parseFromString(data, 'text/html');
+                    var answer = htmlDoc.querySelector("#answer-box").innerText;
+                    document.getElementById("answer").innerText = answer;
+                })
+                .catch(error => {
+                    console.log(error);
+                    document.getElementById("answer").innerText = "Sorry, I couldn't find an answer.";
+                });
+        }
+    </script>
+</body>
+</html>
