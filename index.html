@@ -4,8 +4,28 @@
 <title>Dr.Ayman</title>
 <link rel="icon" type="image/x-icon" href="150x-1.jpg">
 <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width">
+ <title>Numeric Clock</title>
+ <style>
+   .clock {
+     font-size: 50px;
+     font-family: monospace;
+   }
+ </style>
 </head>
 <body style="font-family:courier; text-align:center;">
+  <div class="clock" id="clock"></div>
+  <script>
+    function updateClock() {
+      let now = new Date();
+      let hours = now.getHours().toString().padStart(2, '0');
+      let minutes = now.getMinutes().toString().padStart(2, '0');
+      let seconds = now.getSeconds().toString().padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
   <h1 style="font-size: 100px; text-align: center;"; color ononline="UNwer.com";>hello</h1>
 
 <p style="color: red">00212705514243</p>
