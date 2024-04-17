@@ -1,0 +1,33 @@
+
+    h1 {
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: underline;
+        animation: wavyEffect 1s infinite linear;
+    }
+    
+    @keyframes wavyEffect {
+      0%, 100% {
+        text-shadow: 2px 2px 2px #000;
+      }
+      25% {
+        text-shadow: -2px -2px 2px #000;
+      }
+      50% {
+        text-shadow: -2px 2px 2px #000;
+      }
+      75% {
+        text-shadow: 2px -2px 2px #000;
+      }
+    }
+button{
+        padding: 10px;
+        color: white;
+    }
+    btn-1{color: green;}
+    btn-2{color: black;}
+    btn-3{color: yellow;}
